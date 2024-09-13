@@ -5,11 +5,36 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
-import { Facebook, Mail, Phone, Menu, X, CheckCircle, AlertTriangle, Lock, Shield } from "lucide-react"
+import { Facebook, Mail, Phone, Menu, X, CheckCircle, AlertTriangle, Lock, Shield, MessageCircle, DollarSign, Play, CheckSquare, ChevronLeft, ChevronRight, Star } from "lucide-react"
 import Image from 'next/image'
+import Link from 'next/link'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion"
 
 export default function ModernLandingPageVietnamese() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openItem, setOpenItem] = useState<string | null>(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const ContactButton = () => (
+    <Link href="https://zalo.me/0399173146" target="_blank" rel="noopener noreferrer">
+      <Button className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white transition-colors">
+        Liên hệ ngay
+      </Button>
+    </Link>
+  )
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % 3)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + 3) % 3)
+  }
 
   return (
     <React.Fragment>
@@ -70,13 +95,14 @@ export default function ModernLandingPageVietnamese() {
               </Button>
               <div className="mt-12">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/images/facebook-recovery.jpg"
                   alt="Khôi phục tài khoản Facebook"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-lg mx-auto"
                 />
               </div>
+              <ContactButton />
             </div>
           </section>
 
@@ -90,10 +116,10 @@ export default function ModernLandingPageVietnamese() {
                     <ul className="space-y-2">
                       {[
                         "Đội ngũ chuyên gia với hơn 10 năm kinh nghiệm trong lĩnh vực bảo mật mạng xã hội",
-                        "Tỷ lệ thành công trên 95% trong việc khôi phục tài khoản Facebook",
-                        "Dịch vụ nhanh chóng, với thời gian phản hồi trung bình chỉ 2 giờ",
-                        "Hỗ trợ khách hàng 24/7 qua điện thoại, email và chat trực tuyến",
-                        "Kế hoạch giá cả linh hoạt, phù hợp với mọi ngân sách",
+                        "Tỷ lệ thành công trên 99% trong việc khôi phục tài khoản Facebook",
+                        "Dịch vụ nhanh chóng, với thời gian phản hồi trung bình chỉ 5 phút",
+                        "Hỗ trợ khách hàng 24/7 qua điện thoại, zalo, facebook",
+                        "Giá cả linh hoạt, phù hợp với mọi người, làm xong thanh toán",
                         "Bảo mật thông tin khách hàng tuyệt đối"
                       ].map((item, index) => (
                         <li key={index} className="flex items-center">
@@ -110,10 +136,10 @@ export default function ModernLandingPageVietnamese() {
                     <p className="mb-4">Dịch vụ khôi phục tài khoản Facebook toàn diện của chúng tôi bao gồm:</p>
                     <ul className="space-y-2">
                       {[
-                        "Khôi phục quyền truy cập tài khoản bị khóa hoặc vô hiệu hóa",
+                        "Khôi phục tài khoản bị hack, loại bỏ quyền truy cập của kẻ xâm nhập",
                         "Hỗ trợ đặt lại mật khẩu khi quên hoặc mất quyền truy cập email",
                         "Khôi phục xác thực hai yếu tố khi mất thiết bị hoặc số điện thoại",
-                        "Khôi phục tài khoản bị hack, loại bỏ quyền truy cập của kẻ xâm nhập",
+                        "Khôi phục quyền truy cập tài khoản bị khóa hoặc vô hiệu hóa",
                         "Hướng dẫn chi tiết về các biện pháp bảo mật tài khoản sau khi khôi phục",
                         "Hỗ trợ khôi phục dữ liệu và nội dung đã bị xóa (nếu có thể)"
                       ].map((item, index) => (
@@ -126,47 +152,65 @@ export default function ModernLandingPageVietnamese() {
                   </CardContent>
                 </Card>
               </div>
+              <div className="text-center">
+                <ContactButton />
+              </div>
             </div>
           </section>
 
-          <section id="các-bước" className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+          <section id="các-bước" className="py-10 md:py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
             <div className="container mx-auto px-4">
-              <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Quy Trình Khôi Phục</h2>
-              <div className="grid md:grid-cols-3 gap-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-12 text-center text-gray-800">Quy Trình Làm Việc Của Chúng Tôi</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
                 {[
                   { 
-                    title: "Liên Hệ Chúng Tôi", 
-                    description: "Điền vào biểu mẫu trên trang web hoặc liên hệ qua hotline 24/7 của chúng tôi. Chúng tôi sẽ phản hồi trong vòng 2 giờ.",
-                    icon: <Phone className="text-indigo-600" size={40} />
+                    title: "Tiếp Nhận", 
+                    description: "Tiếp nhận tình trạng",
+                    icon: <Phone className="text-indigo-600" size={24} />
                   },
                   { 
-                    title: "Cung Cấp Thông Tin", 
-                    description: "Chia sẻ chi tiết về vấn đề tài khoản của bạn. Càng nhiều thông tin, chúng tôi càng có thể hỗ trợ bạn hiệu quả hơn.",
-                    icon: <Lock className="text-indigo-600" size={40} />
+                    title: "Tư Vấn", 
+                    description: "Tư vấn vấn đề",
+                    icon: <MessageCircle className="text-indigo-600" size={24} />
                   },
                   { 
-                    title: "Chúng Tôi Hành Động", 
-                    description: "Đội ngũ chuyên gia của chúng tôi sẽ áp dụng các phương pháp tiên tiến nhất để khôi phục tài khoản của bạn một cách an toàn và nhanh chóng.",
-                    icon: <Shield className="text-indigo-600" size={40} />
+                    title: "Báo Giá", 
+                    description: "Báo giá dịch vụ",
+                    icon: <DollarSign className="text-indigo-600" size={24} />
+                  },
+                  { 
+                    title: "Thực Hiện", 
+                    description: "Thực hiện công việc",
+                    icon: <Play className="text-indigo-600" size={24} />
+                  },
+                  { 
+                    title: "Bàn Giao", 
+                    description: "Bàn giao kết quả",
+                    icon: <CheckSquare className="text-indigo-600" size={24} />
+                  },
+                  { 
+                    title: "Bảo Hành", 
+                    description: "Hỗ trợ bảo hành",
+                    icon: <Shield className="text-indigo-600" size={24} />
                   }
                 ].map((step, index) => (
-                  <Card key={index} className="overflow-hidden transform transition-all hover:scale-105 hover:shadow-lg">
-                    <CardContent className="p-6">
-                      <div className="flex justify-center mb-4">{step.icon}</div>
-                      <h3 className="text-xl font-semibold mb-2 text-center">{step.title}</h3>
-                      <p className="text-gray-600 text-center">{step.description}</p>
+                  <Card key={index} className="overflow-hidden transform transition-all hover:scale-105 hover:shadow-lg relative">
+                    <CardContent className="p-3 md:p-6">
+                      <div className="absolute top-0 left-0 bg-indigo-600 text-white w-6 h-6 flex items-center justify-center rounded-br-lg text-xs font-bold">
+                        {index + 1}
+                      </div>
+                      <div className="flex justify-center mb-2 md:mb-4">{step.icon}</div>
+                      <h3 className="text-sm md:text-xl font-semibold mb-1 md:mb-2 text-center">{step.title}</h3>
+                      <p className="text-xs md:text-sm text-gray-600 text-center">{step.description}</p>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-              <div className="mt-12 text-center">
-                <Image
-                  src="/placeholder.svg?height=300&width=800"
-                  alt="Quy trình khôi phục tài khoản"
-                  width={800}
-                  height={300}
-                  className="rounded-lg shadow-lg mx-auto"
-                />
+              <div className="mt-8 text-center text-gray-600">
+                <p className="text-sm md:text-base">Hãy làm theo các bước từ 1 đến 6 để được hỗ trợ tốt nhất!</p>
+              </div>
+              <div className="mt-8 text-center">
+                <ContactButton />
               </div>
             </div>
           </section>
@@ -174,11 +218,11 @@ export default function ModernLandingPageVietnamese() {
           <section id="câu-hỏi-thường-gặp" className="py-20 bg-white">
             <div className="container mx-auto px-4">
               <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Câu Hỏi Thường Gặp</h2>
-              <div className="grid md:grid-cols-2 gap-8">
+              <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
                 {[
                   {
                     question: "Mất bao lâu để khôi phục tài khoản Facebook của tôi?",
-                    answer: "Thời gian khôi phục tùy thuộc vào tình trạng cụ thể của tài khoản. Thông thường, chúng tôi có thể khôi phục tài khoản trong vòng 24-48 giờ sau khi nhận đủ thông tin cần thiết."
+                    answer: "Thời gian khôi phục tùy thuộc vào tình trạng cụ thể của tài khoản. Thông thường, chúng tôi có thể khôi phục tài khoản trong vòng 5-10 phút sau khi nhận đủ thông tin cần thiết."
                   },
                   {
                     question: "Chi phí cho dịch vụ khôi phục tài khoản là bao nhiêu?",
@@ -193,13 +237,106 @@ export default function ModernLandingPageVietnamese() {
                     answer: "Chúng tôi có chính sách hoàn tiền 100% nếu không thể khôi phục tài khoản của bạn. Tuy nhiên, với tỷ lệ thành công trên 95%, chúng tôi tin rằng sẽ giải quyết được vấn đề của bạn."
                   }
                 ].map((faq, index) => (
-                  <Card key={index} className="overflow-hidden">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-2">{faq.question}</h3>
-                      <p className="text-gray-600">{faq.answer}</p>
-                    </CardContent>
-                  </Card>
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
+              </Accordion>
+              <div className="mt-8 text-center">
+                <ContactButton />
+              </div>
+            </div>
+          </section>
+
+          <section id="đánh-giá-khách-hàng" className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+              <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+              <div className="relative">
+                <button className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg z-10">
+                  <ChevronLeft className="text-gray-600" size={24} onClick={prevSlide} />
+                </button>
+                
+                <div className="overflow-hidden">
+                  <div className="flex transition-transform duration-300 ease-in-out">
+                    {[
+                      {
+                        name: "Nguyễn Văn A",
+                        position: "Chủ doanh nghiệp",
+                        comment: "Dịch vụ khôi phục tài khoản Facebook của họ thật sự xuất sắc. Tôi đã lấy lại được tài khoản quan trọng của mình chỉ trong vòng 30 phút. Đội ngũ hỗ trợ rất chuyên nghiệp và hiệu quả.",
+                        image: "/images/customer1.png",
+                        rating: 5
+                      },
+                      {
+                        name: "Trần Thị B",
+                        position: "Influencer",
+                        comment: "Đội ngũ hỗ trợ rất chuyên nghiệp và thân thiện. Họ đã giúp tôi khôi phục tài khoản bị hack một cách nhanh chóng và an toàn. Tôi đặc biệt ấn tượng với sự tận tâm và kiến thức chuyên môn của họ.",
+                        image: "/images/customer2.png",
+                        rating: 5
+                      },
+                      {
+                        name: "Lê Văn C",
+                        position: "Nhân viên văn phòng",
+                        comment: "Tôi đã nghĩ mình sẽ mất tài khoản Facebook vĩnh viễn, nhưng nhờ có dịch vụ của họ, tôi đã lấy lại được tất cả. Cảm ơn rất nhiều! Giá cả hợp lý và dịch vụ xuất sắc.",
+                        image: "/images/customer3.png",
+                        rating: 5
+                      },
+                      {
+                        name: "Phạm Thị D",
+                        position: "Sinh viên",
+                        comment: "Tôi rất lo lắng khi tài khoản Facebook của mình bị khóa, nhưng đội ngũ hỗ trợ đã giúp tôi giải quyết vấn đề một cách nhanh chóng. Họ giải thích rõ ràng từng bước và đảm bảo tôi hiểu được quy trình.",
+                        image: "/images/customer4.jpg",
+                        rating: 4
+                      },
+                      {
+                        name: "Hoàng Văn E",
+                        position: "Freelancer",
+                        comment: "Dịch vụ khôi phục tài khoản của họ thật sự đáng tin cậy. Tôi đã thử nhiều cách khác nhau nhưng không thành công, may mắn tìm được họ. Chỉ trong vài giờ, tôi đã lấy lại được quyền kiểm soát tài khoản của mình.",
+                        image: "/images/customer5.jpg",
+                        rating: 5
+                      },
+                      {
+                        name: "Ngô Thị F",
+                        position: "Giáo viên",
+                        comment: "Tôi rất ấn tượng với tốc độ và hiệu quả của dịch vụ. Họ không chỉ giúp tôi khôi phục tài khoản mà còn hướng dẫn cách bảo vệ tài khoản trong tương lai. Rất chuyên nghiệp và đáng tin cậy!",
+                        image: "/images/customer6.jpg",
+                        rating: 5
+                      }
+                    ].map((testimonial, index) => (
+                      <div key={index} className="w-full md:w-1/3 px-4 flex-shrink-0">
+                        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+                          <div className="flex items-center mb-4">
+                            <Image
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              width={60}
+                              height={60}
+                              className="rounded-full mr-4"
+                            />
+                            <div>
+                              <h3 className="font-semibold text-lg">{testimonial.name}</h3>
+                              <p className="text-gray-600">{testimonial.position}</p>
+                            </div>
+                          </div>
+                          <p className="text-gray-700 italic mb-4">"{testimonial.comment}"</p>
+                          <div className="flex items-center">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className={i < testimonial.rating ? "text-yellow-400" : "text-gray-300"} size={20} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <button className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg z-10">
+                  <ChevronRight className="text-gray-600" size={24} onClick={nextSlide} />
+                </button>
               </div>
             </div>
           </section>
@@ -210,7 +347,7 @@ export default function ModernLandingPageVietnamese() {
               <div className="flex flex-col md:flex-row items-center justify-center gap-12">
                 <div className="w-full md:w-1/2">
                   <Image
-                    src="/placeholder.svg?height=400&width=500"
+                    src="/images/support-team.jpg"
                     alt="Đội ngũ hỗ trợ của chúng tôi"
                     width={500}
                     height={400}
@@ -259,10 +396,30 @@ export default function ModernLandingPageVietnamese() {
               <div>
                 <h4 className="text-lg font-semibold mb-4">Thông Tin Liên Hệ</h4>
                 <ul className="space-y-2">
-                  <li className="flex items-center"><Phone className="mr-2" size={18} /> Hotline: 1900 1234 (24/7)</li>
-                  <li className="flex items-center"><Mail className="mr-2" size={18} /> Email: hotro@khoiphucfb.com</li>
-                  <li className="flex items-center"><Facebook className="mr-2" size={18} /> Facebook: /dichvukhoiphucfb</li>
-                  <li className="flex items-center"><AlertTriangle className="mr-2" size={18} /> Hỗ trợ khẩn cấp: 0909 123 456</li>
+                  <li className="flex items-center">
+                    <Phone className="mr-2" size={18} /> Hotline: 0399 173 146 | 0327 66 1723 (24/7)
+                  </li>
+                  <li className="flex items-center">
+                    <MessageCircle className="mr-2" size={18} /> 
+                    <a href="https://zalo.me/0399173146" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                      Zalo: 0399 173 146
+                    </a>
+                  </li>
+                  <li className="flex items-center">
+                    <Facebook className="mr-2" size={18} /> 
+                    <a href="https://www.facebook.com/duc.long.6" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                      Facebook: Đức Long
+                    </a>
+                  </li>
+                  <li className="flex items-center">
+                    <Facebook className="mr-2" size={18} /> 
+                    <a href="https://www.facebook.com/halongmeta" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                      Facebook: Hạ Long Meta
+                    </a>
+                  </li>
+                  <li className="flex items-center">
+                    <AlertTriangle className="mr-2" size={18} /> Hỗ trợ khẩn cấp: 0399 173 146
+                  </li>
                 </ul>
               </div>
             </div>
