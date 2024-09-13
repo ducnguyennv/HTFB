@@ -90,12 +90,14 @@ export default function ModernLandingPageVietnamese() {
               <p className="text-xl mb-10 text-gray-600 max-w-2xl mx-auto">
                 Mất quyền truy cập vào Facebook? Đừng lo lắng, đội ngũ chuyên gia của chúng tôi sẽ giúp bạn lấy lại quyền kiểm soát cuộc sống kỹ thuật số của mình. Với nhiều năm kinh nghiệm và tỷ lệ thành công cao, chúng tôi cam kết mang lại giải pháp hiệu quả và nhanh chóng cho bạn.
               </p>
-              <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white transition-colors">
-                Bắt Đầu Khôi Phục Ngay
-              </Button>
+              <Link href="https://zalo.me/0399173146" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white transition-colors">
+                  Bắt Đầu Khôi Phục Ngay
+                </Button>
+              </Link>
               <div className="mt-12">
                 <Image
-                  src="/images/facebook-recovery.jpg"
+                  src="/images/customer1.png"
                   alt="Khôi phục tài khoản Facebook"
                   width={600}
                   height={400}
@@ -262,7 +264,7 @@ export default function ModernLandingPageVietnamese() {
                 </button>
                 
                 <div className="overflow-hidden">
-                  <div className="flex transition-transform duration-300 ease-in-out">
+                  <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                     {[
                       {
                         name: "Nguyễn Văn A",
