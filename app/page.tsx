@@ -17,7 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../components/ui/accordion"
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import { Skeleton } from "../components/ui/skeleton"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table"
 import { useKeenSlider } from 'keen-slider/react'
@@ -30,6 +30,13 @@ export default function ModernLandingPageVietnamese() {
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [imageLoaded, setImageLoaded] = useState(false)
+
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
 
   const ContactButton = () => (
     <Link href="https://zalo.me/0399173146" target="_blank" rel="noopener noreferrer">
@@ -171,6 +178,10 @@ export default function ModernLandingPageVietnamese() {
 
   return (
     <React.Fragment>
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-indigo-600 z-50"
+        style={{ scaleX }}
+      />
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-100 via-white to-purple-100">
         <header className="sticky top-0 z-50 bg-white bg-opacity-80 backdrop-blur-md shadow-sm">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -267,7 +278,7 @@ export default function ModernLandingPageVietnamese() {
           </FadeInSection>
 
           <FadeInSection>
-            <section id="dịch-vụ" className="py-12 bg-white">
+            <section id="dịch-vụ" className="py-12 bg-white overflow-hidden">
               <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Dịch Vụ Khôi Phục Của Chúng Tôi</h2>
                 <div className="grid md:grid-cols-2 gap-12">
@@ -313,7 +324,7 @@ export default function ModernLandingPageVietnamese() {
                     </CardContent>
                   </Card>
                 </div>
-                <div className="text-center">
+                <div className="text-center mt-8">
                   <ContactButton />
                 </div>
               </div>
@@ -505,6 +516,23 @@ export default function ModernLandingPageVietnamese() {
           </div>
         </footer>
       </div>
+
+      {/* Chatbot Widget */}
+      <motion.div
+        className="fixed bottom-4 left-4 z-50"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <Link href="https://zalo.me/0399173146" target="_blank" rel="noopener noreferrer">
+          <button
+            className="bg-indigo-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-indigo-700 transition-colors duration-300"
+          >
+            <MessageCircle size={24} />
+            <span className="ml-2 hidden md:inline">Chat với chúng tôi</span>
+          </button>
+        </Link>
+      </motion.div>
 
       <AnimatePresence>
         {showScrollTop && (
