@@ -1,21 +1,18 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import React from 'react'
+import { Metadata } from 'next'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-  title: 'Khôi Phục Tài Khoản Facebook',
-  description: 'Dịch vụ chuyên nghiệp giúp bạn khôi phục tài khoản Facebook bị mất',
+  title: 'Khôi Phục Tài Khoản Facebook | Dịch Vụ Chuyên Nghiệp',
+  description: 'Dịch vụ khôi phục tài khoản Facebook chuyên nghiệp, nhanh chóng và an toàn. Đội ngũ chuyên gia với tỷ lệ thành công cao, hỗ trợ 24/7.',
+  keywords: 'khôi phục facebook, lấy lại tài khoản facebook, bảo mật facebook, hack facebook',
   openGraph: {
-    images: [
-      {
-        url: '/images/facebook-recovery.jpg',
-        width: 600,
-        height: 400,
-        alt: 'Khôi phục tài khoản Facebook',
-      },
-    ],
+    title: 'Khôi Phục Tài Khoản Facebook | Dịch Vụ Chuyên Nghiệp',
+    description: 'Dịch vụ khôi phục tài khoản Facebook chuyên nghiệp, nhanh chóng và an toàn. Đội ngũ chuyên gia với tỷ lệ thành công cao, hỗ trợ 24/7.',
+    images: [{ url: '/images/og-image.jpg' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
 }
 
@@ -26,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
