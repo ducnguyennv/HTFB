@@ -15,15 +15,18 @@
     "@types/react-dom": "^18.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.5.4",
     "lucide-react": "^0.439.0",
     "next": "^14.2.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-lazy-load-image-component": "^1.6.2",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "22.5.4",
+    "@types/react-lazy-load-image-component": "^1.6.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.45",
     "shadcn-ui": "^0.8.0",
