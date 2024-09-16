@@ -1,0 +1,21 @@
+{
+  "name": "HTFB - Dịch vụ Khôi phục Facebook",
+  "short_name": "HTFB",
+  "description": "Dịch vụ chuyên nghiệp khôi phục tài khoản Facebook bị hack, khóa",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
