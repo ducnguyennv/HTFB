@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Skeleton } from "./ui/skeleton"
@@ -13,6 +15,10 @@ export default function HeroSection() {
     const timer = setTimeout(() => setIsLoading(false), 500)
     return () => clearTimeout(timer)
   }, [])
+
+  const handleImageLoad = () => {
+    setImageLoaded(true)
+  }
 
   return (
     <section id="trang-chủ" className="py-12 md:py-16">
@@ -44,7 +50,8 @@ export default function HeroSection() {
               src="/images/customer1.png"
               alt="Khôi phục tài khoản Facebook"
               effect="blur"
-              afterLoad={() => setImageLoaded(true)}
+              afterLoad={handleImageLoad}
+              onError={(e) => console.error("Lỗi tải hình ảnh:", e)}
               className={`rounded-lg shadow-lg w-full h-auto object-cover transition-opacity duration-300 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}

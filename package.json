@@ -30,7 +30,7 @@
     "@types/node": "22.5.4",
     "@types/react-lazy-load-image-component": "^1.6.4",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.45",
+    "postcss": "^8.4.47",
     "shadcn-ui": "^0.8.0",
     "tailwindcss": "^3.4.11",
     "typescript": "5.6.2"

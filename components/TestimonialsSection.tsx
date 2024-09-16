@@ -1,9 +1,9 @@
 import React, { useMemo, useCallback } from 'react'
 import { Card, CardContent } from "./ui/card"
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { Star } from "lucide-react"
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+import Image from 'next/image'
+import { Star } from 'lucide-react' // Thêm dòng này
 
 interface Testimonial {
   name: string;
@@ -18,16 +18,12 @@ const TestimonialCard = React.memo(({ testimonial }: { testimonial: Testimonial 
     <CardContent className="p-8 flex flex-col justify-between h-full">
       <div>
         <div className="flex items-start mb-8">
-          <LazyLoadImage
+          <Image
             src={testimonial.image}
             alt={testimonial.name}
             width={80}
             height={80}
-            effect="blur"
             className="rounded-full mr-10"
-            onError={(e) => {
-              e.currentTarget.src = '/images/customer1.png';
-            }}
           />
           <div className="flex flex-col">
             <h3 className="text-2xl font-semibold mb-2">{testimonial.name}</h3>
@@ -36,7 +32,7 @@ const TestimonialCard = React.memo(({ testimonial }: { testimonial: Testimonial 
         </div>
         <p className="text-gray-700 mb-6 italic text-lg">"{testimonial.comment}"</p>
       </div>
-      <div className="flex items-center" aria-label={`Đánh giá ${testimonial.rating} sao`}>
+      <div className="flex items-center" aria-label={`Đánh giá ${testimonial.rating} trên 5 sao`}>
         {[...Array(testimonial.rating)].map((_, i) => (
           <Star key={i} className="text-yellow-500 mr-1" size={24} aria-hidden="true" />
         ))}
