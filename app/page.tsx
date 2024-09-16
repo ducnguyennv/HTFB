@@ -14,7 +14,7 @@ import ChatWidget from '../components/ChatWidget'
 import ScrollTopButton from '../components/ScrollTopButton'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Head from 'next/head'
-import { NextSeo, WebPageJsonLd } from 'next-seo'
+import { NextSeo, WebPageJsonLd, OrganizationJsonLd, LocalBusinessJsonLd } from 'next-seo'
 
 export default function ModernLandingPageVietnamese() {
   const { scrollYProgress } = useScroll()
@@ -31,7 +31,7 @@ export default function ModernLandingPageVietnamese() {
         <link rel="alternate" hrefLang="vi" href="https://htfb.vercel.app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="google-site-verification" content="fWXO0bjp--QEfqTH_Ta2bgvhqlcg1sQ4tpuihXQlJYs" />
+        <meta name="google-site-verification" content="U2K29Ig4nP3ag2mpNygo-kMomCxyxV9nhXou_H6l82A" />
       </Head>
       <NextSeo
         title="Dịch vụ Khôi phục Tài khoản Facebook | Chuyên nghiệp & Uy tín | HTFB"
@@ -114,6 +114,32 @@ export default function ModernLandingPageVietnamese() {
         reviewedBy={{
           type: "Person",
           name: "Phạm Đức Long"
+        }}
+      />
+      <OrganizationJsonLd
+        type="Organization"
+        id="https://htfb.vercel.app"
+        name="HTFB"
+        url="https://htfb.vercel.app"
+        logo="https://htfb.vercel.app/logo.png"
+        sameAs={[
+          'https://www.facebook.com/htfb',
+          'https://twitter.com/htfb'
+        ]}
+      />
+      <LocalBusinessJsonLd
+        type="LocalBusiness"
+        id="https://htfb.vercel.app"
+        name="HTFB"
+        description="Dịch vụ chuyên nghiệp khôi phục tài khoản Facebook"
+        url="https://htfb.vercel.app"
+        telephone="0399173146"
+        address={{
+          streetAddress: 'Hà Nội',
+          addressLocality: 'Hà Nội',
+          addressRegion: 'HN',
+          postalCode: '100000',
+          addressCountry: 'VN',
         }}
       />
     </React.Fragment>

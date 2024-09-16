@@ -1,1 +1,1 @@
-self.__BUILD_MANIFEST = (function(a){return {__rewrites:{afterFiles:[{has:void 0,source:a,destination:a}],beforeFiles:[],fallback:[]},sortedPages:["\u002F_app"]}}("\u002Fgoogle[một_chuỗi_ký_tự].html"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
+self.__BUILD_MANIFEST = (function(a){return {__rewrites:{afterFiles:[{has:void 0,source:a,destination:a}],beforeFiles:[],fallback:[]},sortedPages:["\u002F_app"]}}("\u002Fgooglec0f9744c55cefbdc.html"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

@@ -2,8 +2,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/google[một_chuỗi_ký_tự].html',
-        destination: '/google[một_chuỗi_ký_tự].html',
+        source: '/googlec0f9744c55cefbdc.html',
+        destination: '/googlec0f9744c55cefbdc.html',
       },
     ]
   },
