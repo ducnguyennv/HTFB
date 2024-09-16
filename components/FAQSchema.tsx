@@ -29,6 +29,22 @@ const FAQSchema = () => {
           "@type": "Answer",
           "text": "Có, dịch vụ của chúng tôi hoàn toàn an toàn và tuân thủ các quy định của Facebook. Chúng tôi không yêu cầu mật khẩu của bạn và sử dụng các phương pháp được Facebook chấp thuận để hỗ trợ khôi phục tài khoản."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Tôi có thể khôi phục tài khoản Facebook bị hack không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có, chúng tôi có thể giúp bạn khôi phục tài khoản Facebook bị hack. Chúng tôi sẽ hướng dẫn bạn qua quy trình bảo mật và làm việc với Facebook để lấy lại quyền kiểm soát tài khoản của bạn."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Có bảo hành sau khi khôi phục tài khoản không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có, chúng tôi cung cấp dịch vụ bảo hành sau khi khôi phục tài khoản. Chúng tôi sẽ hỗ trợ bạn trong việc bảo mật tài khoản và cung cấp hướng dẫn để tránh các vấn đề tương tự trong tương lai."
+        }
       }
     ]
   }

@@ -26,7 +26,7 @@ const HeroSection = React.memo(() => {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600"
           >
-            Khôi Phục Tài Khoản Facebook Của Bạn
+            Dịch Vụ Khôi Phục Tài Khoản Facebook Chuyên Nghiệp
           </motion.h1>
         )}
         <motion.p 
@@ -35,7 +35,7 @@ const HeroSection = React.memo(() => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-lg md:text-xl mb-10 text-gray-700 max-w-2xl mx-auto"
         >
-          Mất quyền truy cập vào Facebook? Đừng lo lắng, đội ngũ chuyên gia của chúng tôi sẽ giúp bạn lấy lại quyền kiểm soát cuộc sống kỹ thuật số của mình.
+          Đội ngũ chuyên gia của chúng tôi sẽ giúp bạn lấy lại quyền kiểm soát tài khoản Facebook bị hack hoặc khóa. Tỷ lệ thành công trên 99%, hỗ trợ 24/7.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
