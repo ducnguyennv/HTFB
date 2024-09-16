@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    config.externals = [...config.externals, { canvas: 'canvas' }];
-    return config;
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ]
   },
 };
 
