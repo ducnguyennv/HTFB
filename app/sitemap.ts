@@ -9,17 +9,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://htfb.vercel.app/dich-vu',
+      url: 'https://htfb.vercel.app/tin-tuc',
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily',
       priority: 0.8,
     },
     {
-      url: 'https://htfb.vercel.app/lien-he',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      url: 'https://htfb.vercel.app/tin-tuc/cach-bao-ve-tai-khoan-facebook-khoi-bi-hack',
+      lastModified: new Date('2024-03-22'),
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
-    // Thêm các URL khác của trang web của bạn
+    // ... (các URL khác)
   ]
 }

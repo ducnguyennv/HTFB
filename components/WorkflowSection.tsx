@@ -1,63 +1,57 @@
 import React from 'react'
-import { Card, CardContent } from "./ui/card"
-import { Phone, MessageCircle, DollarSign, Play, CheckSquare, Shield } from "lucide-react"
-import ContactButton from './ContactButton'
+import { motion } from 'framer-motion'
+
+const steps = [
+  {
+    title: "Liên hệ với chúng tôi",
+    description: "Gửi yêu cầu hỗ trợ qua Zalo hoặc form liên hệ."
+  },
+  {
+    title: "Đánh giá tình trạng",
+    description: "Chuyên gia của chúng tôi sẽ phân tích tình trạng tài khoản của bạn."
+  },
+  {
+    title: "Đề xuất giải pháp",
+    description: "Chúng tôi sẽ đưa ra phương án khôi phục phù hợp nhất."
+  },
+  {
+    title: "Tiến hành khôi phục",
+    description: "Thực hiện các bước khôi phục tài khoản theo quy trình chuyên nghiệp."
+  },
+  {
+    title: "Bàn giao và hướng dẫn",
+    description: "Trả lại tài khoản và hướng dẫn bảo mật để tránh sự cố tương tự."
+  }
+]
 
 export default function WorkflowSection() {
   return (
-    <section id="các-bước" className="py-10 md:py-12 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section id="quy-trinh" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-12 text-center text-gray-800">Quy Trình Làm Việc Của Chúng Tôi</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
-          {[
-            { 
-              title: "Tiếp Nhận", 
-              description: "Tiếp nhận tình trạng",
-              icon: <Phone className="text-indigo-600" size={24} />
-            },
-            { 
-              title: "Tư Vấn", 
-              description: "Tư vấn vấn đề",
-              icon: <MessageCircle className="text-indigo-600" size={24} />
-            },
-            { 
-              title: "Báo Giá", 
-              description: "Báo giá dịch vụ",
-              icon: <DollarSign className="text-indigo-600" size={24} />
-            },
-            { 
-              title: "Thực Hiện", 
-              description: "Thực hiện công việc",
-              icon: <Play className="text-indigo-600" size={24} />
-            },
-            { 
-              title: "Bàn Giao", 
-              description: "Bàn giao kết quả",
-              icon: <CheckSquare className="text-indigo-600" size={24} />
-            },
-            { 
-              title: "Bảo Hành", 
-              description: "Hỗ trợ bảo hành",
-              icon: <Shield className="text-indigo-600" size={24} />
-            }
-          ].map((step, index) => (
-            <Card key={index} className="overflow-hidden transform transition-all hover:scale-105 hover:shadow-lg relative">
-              <CardContent className="p-3 md:p-6">
-                <div className="absolute top-0 left-0 bg-indigo-600 text-white w-6 h-6 flex items-center justify-center rounded-br-lg text-xs font-bold">
-                  {index + 1}
-                </div>
-                <div className="flex justify-center mb-2 md:mb-4">{step.icon}</div>
-                <h3 className="text-sm md:text-xl font-semibold mb-1 md:mb-2 text-center">{step.title}</h3>
-                <p className="text-xs md:text-sm text-gray-600 text-center">{step.description}</p>
-              </CardContent>
-            </Card>
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-12"
+        >
+          Quy trình làm việc
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white p-6 rounded-lg shadow-md"
+            >
+              <div className="text-3xl font-bold text-indigo-600 mb-4">{index + 1}</div>
+              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-gray-600">{step.description}</p>
+            </motion.div>
           ))}
-        </div>
-        <div className="mt-8 text-center text-gray-600">
-          <p className="text-sm md:text-base">Hãy làm theo các bước từ 1 đến 6 để được hỗ trợ tốt nhất!</p>
-        </div>
-        <div className="mt-8 text-center">
-          <ContactButton />
         </div>
       </div>
     </section>

@@ -1,0 +1,76 @@
+import { Metadata } from 'next'
+import Image from 'next/image'
+import { FaLock, FaShieldAlt, FaMobileAlt, FaLink, FaUserCog, FaWifi } from 'react-icons/fa'
+import HomePage from '@/components/HomePage'
+
+export const metadata: Metadata = {
+  title: 'Cách bảo vệ tài khoản Facebook khỏi bị hack | HTFB',
+  description: 'Tìm hiểu các phương pháp hiệu quả để bảo vệ tài khoản Facebook của bạn khỏi bị hack. Hướng dẫn chi tiết từ chuyên gia HTFB.',
+  openGraph: {
+    title: 'Cách bảo vệ tài khoản Facebook khỏi bị hack | HTFB',
+    description: 'Tìm hiểu các phương pháp hiệu quả để bảo vệ tài khoản Facebook của bạn khỏi bị hack. Hướng dẫn chi tiết từ chuyên gia HTFB.',
+    url: 'https://htfb.vercel.app/tin-tuc/cach-bao-ve-tai-khoan-facebook-khoi-bi-hack',
+    type: 'article',
+    article: {
+      publishedTime: '2024-03-22T00:00:00Z',
+      modifiedTime: '2024-03-22T00:00:00Z',
+      authors: ['https://htfb.vercel.app/about-us'],
+      tags: ['Facebook', 'Bảo mật', 'Hack', 'Tài khoản'],
+    },
+  },
+}
+
+function ArticleContent() {
+  return (
+    <article className="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 className="text-4xl font-bold mb-6 text-center text-indigo-700">Cách bảo vệ tài khoản Facebook khỏi bị hack</h1>
+      
+      <Image
+        src="/images/news/cach-bao-ve-tai-khoan-facebook-khoi-bi-hack.jpg"
+        alt="Bảo vệ tài khoản Facebook"
+        width={800}
+        height={400}
+        className="rounded-lg shadow-lg mb-6 mx-auto"
+      />
+      
+      <p className="text-gray-600 mb-8 text-center">Đăng ngày: 22 tháng 3, 2024</p>
+      
+      <div className="prose max-w-none bg-white p-8 rounded-lg shadow-md">
+        <p className="lead text-xl mb-6">
+          Trong thời đại số hóa ngày nay, việc bảo vệ tài khoản mạng xã hội, đặc biệt là Facebook, trở nên quan trọng hơn bao giờ hết. Dưới đây là những biện pháp hiệu quả giúp bạn bảo vệ tài khoản Facebook khỏi bị hack:
+        </p>
+        
+        <div className="space-y-8">
+          <div className="flex items-start">
+            <FaLock className="text-3xl text-indigo-600 mr-4 mt-1" />
+            <div>
+              <h2 className="text-2xl font-semibold mb-2">1. Sử dụng mật khẩu mạnh và độc đáo</h2>
+              <p>
+                Tạo mật khẩu phức tạp, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt. Tránh sử dụng thông tin cá nhân dễ đoán như ngày sinh hoặc tên người thân.
+              </p>
+            </div>
+          </div>
+          
+          {/* Repeat this pattern for other sections */}
+          {/* ... */}
+          
+        </div>
+        
+        <div className="mt-12 p-6 bg-indigo-50 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Kết luận</h2>
+          <p>
+            Bảo vệ tài khoản Facebook là một quá trình liên tục. Bằng cách áp dụng các biện pháp trên, bạn có thể giảm thiểu đáng kể nguy cơ bị hack. Nếu bạn cảm thấy tài khoản của mình đang gặp nguy hiểm hoặc đã bị xâm phạm, đừng ngần ngại liên hệ với đội ngũ chuyên gia của HTFB để được hỗ trợ kịp thời.
+          </p>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+export default function ProtectFacebookAccount() {
+  return (
+    <HomePage>
+      <ArticleContent />
+    </HomePage>
+  )
+}

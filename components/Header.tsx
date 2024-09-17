@@ -11,9 +11,11 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const menuItems = [
-    { name: 'Trang Chủ', href: '#trang-chu' },
+    { name: 'Trang Chủ', href: '/' },
     { name: 'Dịch Vụ', href: '#dich-vu' },
+    { name: 'Quy Trình', href: '#quy-trinh' },
     { name: 'Đánh Giá', href: '#danh-gia' },
+    { name: 'Tin Tức', href: '/tin-tuc' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Liên Hệ', href: '#lien-he' },
   ]
