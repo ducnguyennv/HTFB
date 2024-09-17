@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import JsonLdSchema from '../components/JsonLdSchema'
 import FAQSchema from '../components/FAQSchema'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin', 'vietnamese'] })
 
@@ -104,17 +106,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="vi" className={inter.className}>
-      <head>
-        <JsonLdSchema />
-        <FAQSchema />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="HandheldFriendly" content="true" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      </head>
-      <body>{children}</body>
+    <html lang="en">
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   )
 }
